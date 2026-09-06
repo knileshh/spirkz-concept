@@ -1,6 +1,6 @@
 # Spirkz social preview
 
-Asset: `public/og.png` (1730 × 909 PNG).
+Master artwork: `public/og.png` (1730 × 909 PNG). Shared asset: `public/og-share-v2.jpg` (1200 × 630 JPEG, approximately 104 KB), resized and encoded from the master with FFmpeg. Open Graph and X reference the smaller, versioned JPEG URL. This reduces the download from 1.3 MB without changing the design; it does not guarantee refresh of previews already stored by messaging apps.
 
 Created with the built-in image-generation tool, using the official Spirkz owl app icon as the brand reference. This is concept artwork, not a screenshot of the live Spirkz application.
 
