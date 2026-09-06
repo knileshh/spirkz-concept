@@ -1,0 +1,12 @@
+# Spirkz social preview
+
+Asset: `public/og.png` (1730 × 909 PNG).
+
+Created with the built-in image-generation tool, using the official Spirkz owl app icon as the brand reference. This is concept artwork, not a screenshot of the live Spirkz application.
+
+Open Graph and X tags are emitted directly in `index.html`, so preview crawlers do not need JavaScript. The production origin is `https://spirkz-concept.vercel.app`; update the absolute metadata URLs if the public domain changes.
+
+## Generation prompt
+
+Create one finished Open Graph social-sharing card for the Spirkz educational short-video website. Landscape 1200x630 pixels (1.905:1), edge-to-edge. Use the attached official owl app icon as a brand reference, preserving the recognizable black line-art owl and teal lowercase spirkz wordmark. Editorial, calm, confident design matching the website: warm ivory #fbfcf8 background, very dark forest green #182d27 typography, muted sage #e4eddf and restrained lime #c9f58b accents. Layout: generous 64px safe margins; small owl brand lockup in the upper left, large bold clean Manrope-like sans headline on the left reading EXACTLY 'A little scroll.' then 'A lot to' then an elegant green italic serif 'discover.' supporting line below EXACTLY 'Short videos. Real learning.' small footer EXACTLY 'INDEPENDENT WEBSITE CONCEPT'. On the right, a beautifully proportioned slender portrait smartphone with dark forest screen, a large detailed photographic Moon and tiny minimal lesson typography EXACTLY 'Same Moon.' and 'Same face. But why?' with a subtle lime circular play button. Behind phone a single large muted sage rounded abstract shape and fine orbital curve, no glow. Premium crisp flat editorial artwork, readable at small social-preview sizes, substantial whitespace, consistent with a thoughtful educational product. Keep headline entirely within left 58% and phone within right 38%, no overlapping headline. Avoid generic AI sparkle icons, neon gradients, extraneous badges, browser chrome, app store badges, people, extra invented words, URLs or watermarks. Official logo reference only; compose a new complete share card around it.
+
