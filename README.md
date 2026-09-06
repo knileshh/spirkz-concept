@@ -41,7 +41,7 @@ If this folder is imported from a larger repository, set its root directory to `
 
 ## Editing
 
-- `src/main.tsx`: landing-page content and lesson player.
+- `src/App.tsx`: landing-page content and lesson player.
 - `src/lessons.ts`: lesson captions, references, and app links.
 - `app/globals.css`: visual theme and responsive styling.
 - `public/images`: locally served image assets.
