@@ -140,7 +140,6 @@
   "iOS updates": "Новости iOS",
   "Something new in a minute": "Новое за минуту",
   "TRY A CONCEPT LESSON": "ПОПРОБУЙТЕ ПРИМЕР УРОКА",
-  "Every preview plays. Pause, explore a chapter, or try the question at the end.": "Все примеры работают. Ставьте на паузу, выбирайте главу или отвечайте на вопрос в конце.",
   "INVEST & PARTNER": "ИНВЕСТИЦИИ И ПАРТНЁРСТВО",
   "Help shape what": "Помогите создать",
   "learning looks like next.": "будущее обучения.",
@@ -184,7 +183,6 @@
   "Can I create content on Spirkz?": "Можно ли создавать контент в Spirkz?",
   "Spirkz invites educators, professionals and creators to share short lessons. Its website describes creator ownership, editing tools, analytics and a creator fund. Contact the team for current creator-program details.": "Spirkz приглашает преподавателей, специалистов и авторов делиться уроками. На сайте описаны права авторов, редактор, аналитика и фонд поддержки. Актуальные условия уточняйте у команды.",
   "Are these previews from the Spirkz app?": "Эти примеры взяты из приложения Spirkz?",
-  "These three caption-led lessons were created for this independent concept. They demonstrate a possible experience and are not recordings of the live app.": "Эти три текстовых урока созданы для независимого концепта. Они показывают возможный опыт, а не записи настоящего приложения.",
   "SPACE": "КОСМОС",
   "The Moon has a familiar face.": "Знакомое лицо Луны.",
   "Why do we always see the same side of the Moon?": "Почему мы всегда видим одну сторону Луны?",
@@ -259,5 +257,11 @@
   "Play preview: {question}": "Просмотр примера: {question}",
   "Jump to chapter {number}: {title}": "Перейти к главе {number}: {title}",
   "{seconds} of {duration} seconds": "{seconds} из {duration} секунд",
-  "Spirkz — A little scroll. A lot to discover.": "Spirkz — Немного листайте. Открывайте многое."
+  "Spirkz — A little scroll. A lot to discover.": "Spirkz — Немного листайте. Открывайте многое.",
+  "English narration · subtitles in your language": "Озвучка на английском · субтитры на вашем языке",
+  "Read the lesson": "Прочитать урок",
+  "The video could not load.": "Не удалось загрузить видео.",
+  "Open video": "Открыть видео",
+  "These three narrated videos were made locally for this independent concept. They are original demonstrations, not recordings of the live app.": "Эти три озвученных видео созданы локально для независимой концепции. Это оригинальные демонстрации, а не записи работы приложения.",
+  "Every preview plays. Watch a short, read the transcript, or try the optional question.": "Все превью воспроизводятся. Посмотрите короткое видео, прочитайте текст или ответьте на необязательный вопрос."
 }

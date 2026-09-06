@@ -62,6 +62,6 @@ export const faqs = [
   ],
   [
     'Are these previews from the Spirkz app?',
-    'These three caption-led lessons were created for this independent concept. They demonstrate a possible experience and are not recordings of the live app.',
+    'These three narrated videos were made locally for this independent concept. They are original demonstrations, not recordings of the live app.',
   ],
 ] as const;

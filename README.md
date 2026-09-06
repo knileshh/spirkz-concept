@@ -35,7 +35,7 @@ If this folder is imported from a larger repository, set its root directory to `
 - Official Spirkz owl branding from its Google Play listing and website.
 - English, Spanish, German, French, Russian, Maltese and Georgian, matching the original website. The selector translates the page and sample lessons, remembers the choice locally, and supports shareable `?lang=ka` links.
 - A correctly proportioned, clickable phone concept.
-- Three original 32-second animated, caption-led sample lessons. Play/pause, seek, chapter selection, replay, next lesson, and an end-of-lesson quiz work locally.
+- Three original 32-second vertical MP4 shorts at 1080×1920 and 30fps, with animated explanations and offline English narration. The video player supports pause, seek, volume, fullscreen, next lesson, and subtitles in all seven languages. Transcript and quiz are optional below the player.
 - Keyboard accessible dialog and single-open FAQ accordion using the starter's Base UI / Shadcn components.
 - Reduced-motion support, visible focus indicators, and mobile navigation.
 - Android links go to the real Play Store listing. The iOS action opens the official website; no emails are collected by this concept.
@@ -45,6 +45,7 @@ If this folder is imported from a larger repository, set its root directory to `
 ## Editing
 
 - `src/App.tsx`: landing-page content and lesson player.
+- `src/VideoLessonPlayer.tsx`: portrait video dialog, subtitles, transcript and optional quiz.
 - `src/Sections.tsx`: restored original-site sections.
 - `src/content.ts`: shared section navigation, all topics and FAQ content.
 - `src/icons.ts`: directly imported Phosphor icons.
@@ -54,6 +55,8 @@ If this folder is imported from a larger repository, set its root directory to `
 - `app/globals.css`: visual theme and responsive styling.
 - `public/images`: locally served image assets.
 - `public/brand`: official owl and app-icon assets.
+- `public/videos`: production MP4s, posters and WebVTT subtitle tracks.
+- `video`: separate local Remotion renderer and offline narration scripts; see its README. Its dependencies are not needed to run or deploy the website.
 - `public/fonts`: locally served Manrope font files and license.
 - `public/credits.html`: attribution and concept disclosure.
 
@@ -63,4 +66,4 @@ The scaffold was adapted to use Vite's static build so it can be deployed on Ver
 
 This is an outreach concept, not an official Spirkz site or app. It does not include live Spirkz footage, a recommendation system, a course backend, or an email service. Its sample course path is illustrative, and the photo and content credits should stay with the demo.
 
-TypeScript, lint, lesson checks, translation completeness and placeholder checks, server-rendered coverage for all seven languages, and navigation CSS regression checks at 320–1440px are provided. The standalone credits page remains in English. Browser interaction and responsive visual QA have not been performed in this task.
+TypeScript, lint, lesson checks, translation completeness and placeholder checks, server-rendered coverage for all seven languages, and navigation CSS regression checks at 320–1440px are provided. Video encoding, decoding, audio presence and representative exported frames are checked separately. The standalone credits page remains in English. Browser interaction and responsive visual QA have not been performed in this task.

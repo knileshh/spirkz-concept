@@ -1,39 +1,27 @@
 import { useI18n } from './I18n';
 import { LanguageSelector } from './LanguageSelector';
 import React, { useEffect, useRef, useState } from 'react';
-import { Slider } from '@/components/ui/slider';
+import { VideoLessonPlayer } from './VideoLessonPlayer';
 import {
   ArrowUpRight,
   ArrowRight,
   Play,
-  Pause,
-  RotateCcw,
-  Check,
   Menu,
   X,
   BookOpen,
   Bookmark,
   Compass,
-  CheckCircle,
   Moon,
   CellSignal,
   Battery,
-  VolumeX,
 } from './icons';
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-} from '@/components/ui/dialog';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { lessons, PLAY_STORE, OFFICIAL_SITE, chapterAt } from './lessons';
+import { lessons, PLAY_STORE, OFFICIAL_SITE } from './lessons';
 import { navigation, faqs } from './content';
 import {
   AboutSection,
@@ -74,212 +62,6 @@ const StoreButton = () => {
     </a>
   );
 };
-
-function LessonPlayer({
-  selected,
-  onSelect,
-  returnFocus,
-}: {
-  selected: number | null;
-  onSelect: (n: number | null) => void;
-  returnFocus: React.RefObject<HTMLElement | null>;
-}) {
-  const { t, localize } = useI18n();
-  const [elapsed, setElapsed] = useState(0);
-  const [requestedPlayback, setPlaying] = useState(selected !== null);
-  const [answer, setAnswer] = useState<number | null>(null);
-  const lesson = localize(lessons[selected ?? 0]);
-  const playing = requestedPlayback && elapsed < lesson.duration;
-  useEffect(() => {
-    if (!playing || selected === null) return;
-    let last = performance.now();
-    const timer = window.setInterval(() => {
-      const now = performance.now();
-      const delta = (now - last) / 1000;
-      last = now;
-      if (!document.hidden)
-        setElapsed((t) => Math.min(lesson.duration, t + delta));
-    }, 100);
-    return () => window.clearInterval(timer);
-  }, [playing, selected, lesson.duration]);
-  const chapter = chapterAt(elapsed, lesson.duration, lesson.chapters.length);
-  const finished = elapsed >= lesson.duration;
-  const replay = () => {
-    setElapsed(0);
-    setAnswer(null);
-    setPlaying(true);
-  };
-  return (
-    <Dialog
-      open={selected !== null}
-      onOpenChange={(open) => {
-        if (!open) {
-          setPlaying(false);
-          onSelect(null);
-        }
-      }}
-    >
-      <DialogContent
-        className="lesson-dialog"
-        showCloseButton={false}
-        finalFocus={returnFocus}
-      >
-        <DialogClose
-          className="player-close icon-button"
-          aria-label={t('Close lesson')}
-        >
-          <X />
-        </DialogClose>
-        <div className={`lesson-screen lesson-screen-${lesson.id}`}>
-          <img
-            src={lesson.image}
-            alt=""
-            className={playing ? 'lesson-photo is-playing' : 'lesson-photo'}
-          />
-          <div className="lesson-topline">
-            <span>spirkz.</span>
-            <span>
-              {t('SAMPLE LESSON ·')} {lesson.category}
-            </span>
-          </div>
-          <div className="lesson-captions">
-            <span className="eyebrow">
-              {String(chapter + 1).padStart(2, '0')} / 04
-            </span>
-            <h3>{lesson.chapters[chapter].title}</h3>
-            <p>{lesson.chapters[chapter].text}</p>
-          </div>
-          <div className="player-controls">
-            <span className="sr-only" id="lesson-seek-label">
-              {t('Lesson progress in seconds')}{' '}
-            </span>
-            <Slider
-              min={0}
-              max={lesson.duration}
-              step={0.1}
-              value={[elapsed]}
-              aria-labelledby="lesson-seek-label"
-              onValueChange={(value) => {
-                setElapsed(Array.isArray(value) ? value[0] : value);
-                setAnswer(null);
-              }}
-            />
-            <div>
-              <button
-                className="icon-button"
-                aria-label={
-                  finished
-                    ? t('Replay lesson')
-                    : playing
-                      ? t('Pause lesson')
-                      : t('Play lesson')
-                }
-                onClick={() => (finished ? replay() : setPlaying((p) => !p))}
-              >
-                {finished ? (
-                  <RotateCcw />
-                ) : playing ? (
-                  <Pause weight="fill" />
-                ) : (
-                  <Play weight="fill" />
-                )}
-              </button>
-              <span>
-                0:{String(Math.floor(elapsed)).padStart(2, '0')} / 0:
-                {lesson.duration}
-              </span>
-              <span className="caption-note">
-                <VolumeX size={16} /> {t('Caption-led lesson')}{' '}
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="lesson-notes">
-          <span className="eyebrow">{t('A LITTLE MOMENT OF DISCOVERY')}</span>
-          <DialogTitle className="player-title">{lesson.question}</DialogTitle>
-          <DialogDescription className="player-description">
-            {t(
-              'An original animated sample for this website concept. Read along, pause, or jump to a chapter.',
-            )}{' '}
-          </DialogDescription>
-          <div className="chapter-list">
-            {lesson.chapters.map((item, i) => (
-              <button
-                key={item.title}
-                className={i === chapter ? 'active' : ''}
-                onClick={() => {
-                  setElapsed((i * lesson.duration) / 4);
-                  setPlaying(true);
-                  setAnswer(null);
-                }}
-                aria-label={t('Jump to chapter {number}: {title}', {
-                  number: i + 1,
-                  title: item.title,
-                })}
-                aria-current={i === chapter ? 'step' : undefined}
-              >
-                <span>{String(i + 1).padStart(2, '0')}</span>
-                {item.title}
-                <Play size={13} />
-              </button>
-            ))}
-          </div>
-          {finished ? (
-            <div className="quiz" aria-live="polite">
-              <span className="eyebrow">{t('ONE QUICK CHECK')}</span>
-              <h3>{lesson.quiz}</h3>
-              <div className="quiz-answers">
-                {lesson.answers.map((item, i) => (
-                  <button
-                    key={item}
-                    onClick={() => setAnswer(i)}
-                    className={
-                      answer === i
-                        ? i === lesson.correct
-                          ? 'correct'
-                          : 'incorrect'
-                        : ''
-                    }
-                  >
-                    {item}
-                    {answer === i && i === lesson.correct && (
-                      <Check size={17} />
-                    )}
-                  </button>
-                ))}
-              </div>
-              {answer !== null && (
-                <p>
-                  {answer === lesson.correct
-                    ? lesson.explanation
-                    : t(
-                        'Take another look at the lesson, then try the other answer.',
-                      )}
-                </p>
-              )}
-            </div>
-          ) : (
-            <p className="lesson-hint">
-              <CheckCircle size={17} />{' '}
-              {t('Stay to the end for a quick knowledge check.')}{' '}
-            </p>
-          )}
-          <div className="lesson-bottom">
-            <a href={lesson.source} target="_blank" rel="noreferrer">
-              {lesson.sourceName}
-              <ArrowUpRight size={14} />
-            </a>
-            <button
-              onClick={() => onSelect(((selected ?? 0) + 1) % lessons.length)}
-            >
-              {t('Next lesson')} <ArrowRight size={16} />
-            </button>
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
-  );
-}
 
 function App() {
   const { t, localize, locale } = useI18n();
@@ -709,7 +491,7 @@ function App() {
           </a>
         </div>
       </footer>
-      <LessonPlayer
+      <VideoLessonPlayer
         key={selected ?? 'closed'}
         selected={selected}
         onSelect={setSelected}

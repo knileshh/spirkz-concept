@@ -2647,3 +2647,99 @@ html[lang='ka'] .availability {
     margin-left: auto;
   }
 }
+
+.short-dialog {
+  width: min(94vw, 620px);
+  max-width: 620px;
+  max-height: 94dvh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  background: var(--paper, #fbfcf8);
+  border-radius: 22px;
+}
+.short-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.short-heading > div {
+  flex: 1;
+}
+.short-heading h2 {
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 5px 0 0;
+  letter-spacing: -0.5px;
+}
+.short-heading .icon-button {
+  flex: 0 0 34px;
+}
+.short-language-note {
+  font-size: 12px;
+  color: #68776c;
+  margin: 0;
+}
+.short-video {
+  width: auto;
+  max-width: 100%;
+  height: min(65dvh, 660px);
+  aspect-ratio: 9/16;
+  align-self: center;
+  flex-shrink: 0;
+  object-fit: contain;
+  background: #101f1b;
+  border-radius: 12px;
+}
+.short-video::cue {
+  background: rgb(16 31 27 / 95%);
+  color: #fbfcf8;
+  font-family: Manrope, 'Segoe UI', sans-serif;
+}
+.short-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+}
+.short-actions a,
+.short-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.short-actions a {
+  color: #68776c;
+}
+.short-actions button {
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.short-extra {
+  border-top: 1px solid #dfe5da;
+  padding-top: 10px;
+  font-size: 13px;
+}
+.short-extra summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.short-extra p {
+  line-height: 1.65;
+}
+@media (max-width: 600px) {
+  .short-dialog {
+    padding: 15px;
+    width: 96vw;
+    gap: 9px;
+  }
+  .short-heading h2 {
+    font-size: 17px;
+  }
+  .short-video {
+    height: 62dvh;
+  }
+}

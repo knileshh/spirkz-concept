@@ -140,7 +140,6 @@
   "iOS updates": "iOS-ის სიახლეები",
   "Something new in a minute": "ახალი რამ ერთ წუთში",
   "TRY A CONCEPT LESSON": "სცადეთ სანიმუშო გაკვეთილი",
-  "Every preview plays. Pause, explore a chapter, or try the question at the end.": "ყველა ნიმუში მუშაობს. შეაჩერეთ, აირჩიეთ თავი ან უპასუხეთ ბოლო კითხვას.",
   "INVEST & PARTNER": "ინვესტიცია და პარტნიორობა",
   "Help shape what": "დაგვეხმარეთ შევქმნათ",
   "learning looks like next.": "სწავლის მომავალი.",
@@ -184,7 +183,6 @@
   "Can I create content on Spirkz?": "შემიძლია Spirkz-ზე კონტენტის შექმნა?",
   "Spirkz invites educators, professionals and creators to share short lessons. Its website describes creator ownership, editing tools, analytics and a creator fund. Contact the team for current creator-program details.": "Spirkz პედაგოგებს, პროფესიონალებსა და შემქმნელებს გაკვეთილების გაზიარებისკენ იწვევს. საიტზე აღწერილია საავტორო უფლებები, რედაქტირების ხელსაწყოები, ანალიტიკა და შემქმნელთა ფონდი. მიმდინარე პირობებისთვის დაუკავშირდით გუნდს.",
   "Are these previews from the Spirkz app?": "ეს ნიმუშები Spirkz-ის აპიდანაა?",
-  "These three caption-led lessons were created for this independent concept. They demonstrate a possible experience and are not recordings of the live app.": "ეს სამი ტექსტიანი გაკვეთილი დამოუკიდებელი კონცეფციისთვის შეიქმნა. ისინი შესაძლო გამოცდილებას აჩვენებს და არა რეალური აპის ჩანაწერებს.",
   "SPACE": "კოსმოსი",
   "The Moon has a familiar face.": "მთვარეს ნაცნობი სახე აქვს.",
   "Why do we always see the same side of the Moon?": "რატომ ვხედავთ ყოველთვის მთვარის ერთსა და იმავე მხარეს?",
@@ -259,5 +257,11 @@
   "Play preview: {question}": "ნიმუშის გაშვება: {question}",
   "Jump to chapter {number}: {title}": "გადასვლა თავზე {number}: {title}",
   "{seconds} of {duration} seconds": "{seconds} წამი {duration}-დან",
-  "Spirkz — A little scroll. A lot to discover.": "Spirkz — ცოტა ჩამოსქროლეთ. ბევრი აღმოაჩინეთ."
+  "Spirkz — A little scroll. A lot to discover.": "Spirkz — ცოტა ჩამოსქროლეთ. ბევრი აღმოაჩინეთ.",
+  "English narration · subtitles in your language": "ინგლისური გახმოვანება · სუბტიტრები თქვენს ენაზე",
+  "Read the lesson": "წაიკითხეთ გაკვეთილი",
+  "The video could not load.": "ვიდეო ვერ ჩაიტვირთა.",
+  "Open video": "გახსენით ვიდეო",
+  "These three narrated videos were made locally for this independent concept. They are original demonstrations, not recordings of the live app.": "ეს სამი გახმოვანებული ვიდეო ლოკალურად შეიქმნა ამ დამოუკიდებელი კონცეფციისთვის. ისინი ორიგინალური დემონსტრაციებია და არა აპის ჩანაწერები.",
+  "Every preview plays. Watch a short, read the transcript, or try the optional question.": "ყველა ვიდეო ირთვება. უყურეთ მოკლე ვიდეოს, წაიკითხეთ ტექსტი ან უპასუხეთ არჩევით კითხვას."
 }

@@ -307,7 +307,7 @@ export function AppSection({ onLesson }: { onLesson: (id: number) => void }) {
         ))}
         <p>
           {t(
-            'Every preview plays. Pause, explore a chapter, or try the question at the end.',
+            'Every preview plays. Watch a short, read the transcript, or try the optional question.',
           )}{' '}
         </p>
       </div>

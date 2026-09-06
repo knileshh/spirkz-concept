@@ -140,7 +140,6 @@
   "iOS updates": "Novedades de iOS",
   "Something new in a minute": "Algo nuevo en un minuto",
   "TRY A CONCEPT LESSON": "PRUEBA UNA LECCIÓN DEL CONCEPTO",
-  "Every preview plays. Pause, explore a chapter, or try the question at the end.": "Todos los ejemplos funcionan. Pausa, elige un capítulo o responde la pregunta final.",
   "INVEST & PARTNER": "INVERSIÓN Y COLABORACIÓN",
   "Help shape what": "Ayuda a definir",
   "learning looks like next.": "el futuro del aprendizaje.",
@@ -184,7 +183,6 @@
   "Can I create content on Spirkz?": "¿Puedo crear contenido en Spirkz?",
   "Spirkz invites educators, professionals and creators to share short lessons. Its website describes creator ownership, editing tools, analytics and a creator fund. Contact the team for current creator-program details.": "Spirkz invita a educadores, profesionales y creadores a compartir lecciones. Su web describe derechos del autor, herramientas de edición, analíticas y un fondo para creadores. Contacta al equipo para conocer el programa actual.",
   "Are these previews from the Spirkz app?": "¿Estos ejemplos son de la app Spirkz?",
-  "These three caption-led lessons were created for this independent concept. They demonstrate a possible experience and are not recordings of the live app.": "Estas tres lecciones con subtítulos se crearon para este concepto independiente. Muestran una posible experiencia y no son grabaciones de la app real.",
   "SPACE": "ESPACIO",
   "The Moon has a familiar face.": "La Luna tiene una cara familiar.",
   "Why do we always see the same side of the Moon?": "¿Por qué siempre vemos la misma cara de la Luna?",
@@ -259,5 +257,11 @@
   "Play preview: {question}": "Reproducir vista previa: {question}",
   "Jump to chapter {number}: {title}": "Ir al capítulo {number}: {title}",
   "{seconds} of {duration} seconds": "{seconds} de {duration} segundos",
-  "Spirkz — A little scroll. A lot to discover.": "Spirkz — Desliza un poco. Mucho por descubrir."
+  "Spirkz — A little scroll. A lot to discover.": "Spirkz — Desliza un poco. Mucho por descubrir.",
+  "English narration · subtitles in your language": "Narración en inglés · subtítulos en tu idioma",
+  "Read the lesson": "Leer la lección",
+  "The video could not load.": "No se pudo cargar el vídeo.",
+  "Open video": "Abrir vídeo",
+  "These three narrated videos were made locally for this independent concept. They are original demonstrations, not recordings of the live app.": "Estos tres vídeos narrados se crearon localmente para este concepto independiente. Son demostraciones originales, no grabaciones de la aplicación real.",
+  "Every preview plays. Watch a short, read the transcript, or try the optional question.": "Todas las vistas previas funcionan. Mira un vídeo corto, lee la transcripción o prueba la pregunta opcional."
 }

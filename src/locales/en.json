@@ -140,7 +140,6 @@
   "iOS updates": "iOS updates",
   "Something new in a minute": "Something new in a minute",
   "TRY A CONCEPT LESSON": "TRY A CONCEPT LESSON",
-  "Every preview plays. Pause, explore a chapter, or try the question at the end.": "Every preview plays. Pause, explore a chapter, or try the question at the end.",
   "INVEST & PARTNER": "INVEST & PARTNER",
   "Help shape what": "Help shape what",
   "learning looks like next.": "learning looks like next.",
@@ -184,7 +183,6 @@
   "Can I create content on Spirkz?": "Can I create content on Spirkz?",
   "Spirkz invites educators, professionals and creators to share short lessons. Its website describes creator ownership, editing tools, analytics and a creator fund. Contact the team for current creator-program details.": "Spirkz invites educators, professionals and creators to share short lessons. Its website describes creator ownership, editing tools, analytics and a creator fund. Contact the team for current creator-program details.",
   "Are these previews from the Spirkz app?": "Are these previews from the Spirkz app?",
-  "These three caption-led lessons were created for this independent concept. They demonstrate a possible experience and are not recordings of the live app.": "These three caption-led lessons were created for this independent concept. They demonstrate a possible experience and are not recordings of the live app.",
   "SPACE": "SPACE",
   "The Moon has a familiar face.": "The Moon has a familiar face.",
   "Why do we always see the same side of the Moon?": "Why do we always see the same side of the Moon?",
@@ -259,5 +257,11 @@
   "Play preview: {question}": "Play preview: {question}",
   "Jump to chapter {number}: {title}": "Jump to chapter {number}: {title}",
   "{seconds} of {duration} seconds": "{seconds} of {duration} seconds",
-  "Spirkz — A little scroll. A lot to discover.": "Spirkz — A little scroll. A lot to discover."
+  "Spirkz — A little scroll. A lot to discover.": "Spirkz — A little scroll. A lot to discover.",
+  "English narration · subtitles in your language": "English narration · subtitles in your language",
+  "Read the lesson": "Read the lesson",
+  "The video could not load.": "The video could not load.",
+  "Open video": "Open video",
+  "These three narrated videos were made locally for this independent concept. They are original demonstrations, not recordings of the live app.": "These three narrated videos were made locally for this independent concept. They are original demonstrations, not recordings of the live app.",
+  "Every preview plays. Watch a short, read the transcript, or try the optional question.": "Every preview plays. Watch a short, read the transcript, or try the optional question."
 }

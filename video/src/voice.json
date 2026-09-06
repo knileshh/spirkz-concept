@@ -1,0 +1,68 @@
+{
+  "fern": [
+    {
+      "rate": 1,
+      "duration": 6.723083900226757,
+      "file": "voice/fern-0.wav"
+    },
+    {
+      "rate": 0,
+      "duration": 6.193469387755102,
+      "file": "voice/fern-1.wav"
+    },
+    {
+      "rate": 0,
+      "duration": 6.852834467120181,
+      "file": "voice/fern-2.wav"
+    },
+    {
+      "rate": 0,
+      "duration": 7.4031746031746035,
+      "file": "voice/fern-3.wav"
+    }
+  ],
+  "ocean": [
+    {
+      "rate": 0,
+      "duration": 7.508344671201814,
+      "file": "voice/ocean-0.wav"
+    },
+    {
+      "rate": 0,
+      "duration": 7.333061224489796,
+      "file": "voice/ocean-1.wav"
+    },
+    {
+      "rate": 1,
+      "duration": 7.058321995464852,
+      "file": "voice/ocean-2.wav"
+    },
+    {
+      "rate": 2,
+      "duration": 6.973242630385488,
+      "file": "voice/ocean-3.wav"
+    }
+  ],
+  "moon": [
+    {
+      "rate": 0,
+      "duration": 6.833015873015873,
+      "file": "voice/moon-0.wav"
+    },
+    {
+      "rate": 2,
+      "duration": 7.11297052154195,
+      "file": "voice/moon-1.wav"
+    },
+    {
+      "rate": 1,
+      "duration": 7.133015873015873,
+      "file": "voice/moon-2.wav"
+    },
+    {
+      "rate": 1,
+      "duration": 6.5633560090702945,
+      "file": "voice/moon-3.wav"
+    }
+  ]
+}

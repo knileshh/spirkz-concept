@@ -140,7 +140,6 @@
   "iOS updates": "Aġġornamenti dwar iOS",
   "Something new in a minute": "Xi ħaġa ġdida f’minuta",
   "TRY A CONCEPT LESSON": "IPPROVA LEZZJONI TAL-KUNĊETT",
-  "Every preview plays. Pause, explore a chapter, or try the question at the end.": "Kull eżempju jaħdem. Waqqaf, agħżel kapitlu jew ipprova l-mistoqsija fl-aħħar.",
   "INVEST & PARTNER": "INVESTIMENT U SĦUBIJA",
   "Help shape what": "Għin issawwar",
   "learning looks like next.": "it-tagħlim tal-futur.",
@@ -184,7 +183,6 @@
   "Can I create content on Spirkz?": "Nista’ noħloq kontenut fuq Spirkz?",
   "Spirkz invites educators, professionals and creators to share short lessons. Its website describes creator ownership, editing tools, analytics and a creator fund. Contact the team for current creator-program details.": "Spirkz jistieden edukaturi, professjonisti u ħallieqa jaqsmu lezzjonijiet. Is-sit jiddeskrivi drittijiet, għodod ta’ editjar, analiżi u fond għall-ħallieqa. Ikkuntattja lit-tim għad-dettalji attwali.",
   "Are these previews from the Spirkz app?": "Dawn l-eżempji huma mill-app Spirkz?",
-  "These three caption-led lessons were created for this independent concept. They demonstrate a possible experience and are not recordings of the live app.": "Dawn it-tliet lezzjonijiet bit-test inħolqu għal dan il-kunċett indipendenti. Juru esperjenza possibbli u mhumiex reġistrazzjonijiet tal-app vera.",
   "SPACE": "SPAZJU",
   "The Moon has a familiar face.": "Il-Qamar għandu wiċċ familjari.",
   "Why do we always see the same side of the Moon?": "Għaliex dejjem naraw l-istess naħa tal-Qamar?",
@@ -259,5 +257,11 @@
   "Play preview: {question}": "Ilgħab il-previżjoni: {question}",
   "Jump to chapter {number}: {title}": "Mur għall-kapitlu {number}: {title}",
   "{seconds} of {duration} seconds": "{seconds} minn {duration} sekonda",
-  "Spirkz — A little scroll. A lot to discover.": "Spirkz — Skrollja ftit. Skopri ħafna."
+  "Spirkz — A little scroll. A lot to discover.": "Spirkz — Skrollja ftit. Skopri ħafna.",
+  "English narration · subtitles in your language": "Rakkont bl-Ingliż · sottotitli bil-lingwa tiegħek",
+  "Read the lesson": "Aqra l-lezzjoni",
+  "The video could not load.": "Il-vidjo ma setax jitgħabba.",
+  "Open video": "Iftaħ il-vidjo",
+  "These three narrated videos were made locally for this independent concept. They are original demonstrations, not recordings of the live app.": "Dawn it-tliet vidjows bir-rakkont inħolqu lokalment għal dan il-kunċett indipendenti. Huma dimostrazzjonijiet oriġinali, mhux reġistrazzjonijiet tal-app.",
+  "Every preview plays. Watch a short, read the transcript, or try the optional question.": "Kull preview jaħdem. Ara vidjo qasir, aqra t-test jew ipprova l-mistoqsija fakultattiva."
 }
