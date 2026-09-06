@@ -186,7 +186,10 @@ export const Short = ({
       </div>
       {clips.map((clip, i) => (
         <Sequence key={clip.file} from={i * 240 + 5} durationInFrames={235}>
-          <Audio src={staticFile(clip.file)} />
+          <Audio
+            src={staticFile(clip.file)}
+            playbackRate={'playbackRate' in clip ? clip.playbackRate : 1}
+          />
         </Sequence>
       ))}
     </AbsoluteFill>

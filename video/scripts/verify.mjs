@@ -40,6 +40,8 @@ for (const id of ['moon', 'ocean', 'fern']) {
     video?.codec_name !== 'h264' ||
     video?.r_frame_rate !== '30/1' ||
     audio?.codec_name !== 'aac' ||
+    !Number.isFinite(Number(audio?.duration)) ||
+    Math.abs(Number(audio?.duration) - 32) > 0.15 ||
     Math.abs(Number(report.format.duration) - 32) > 0.15
   )
     throw Error(`Invalid encoding: ${id}`);

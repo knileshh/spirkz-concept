@@ -24,7 +24,7 @@ npm run build
 1. Push this folder as the repository root to a repository owned by **knileshh**. Use the personal GitHub identity; do not push through **nileshh-kumarr**.
 2. In Vercel, import that GitHub repository using the personal account.
 3. Framework: **Vite**. Build command: **npm run build**. Output directory: **dist**. Root directory: **./**. The included `vercel.json` provides the framework and build settings.
-4. Deploy. No environment variables, database, backend, or custom rewrites are needed.
+4. Before publishing this promotional concept, replace or regenerate the free-plan ElevenLabs audio with commercially licensed narration. Deploy. No environment variables, database, backend, or custom rewrites are needed.
 
 If this folder is imported from a larger repository, set its root directory to `spirkz-concept` instead.
 
@@ -35,7 +35,7 @@ If this folder is imported from a larger repository, set its root directory to `
 - Official Spirkz owl branding from its Google Play listing and website.
 - English, Spanish, German, French, Russian, Maltese and Georgian, matching the original website. The selector translates the page and sample lessons, remembers the choice locally, and supports shareable `?lang=ka` links.
 - A correctly proportioned, clickable phone concept.
-- Three original 32-second vertical MP4 shorts at 1080×1920 and 30fps, with animated explanations and offline English narration. The video player supports pause, seek, volume, fullscreen, next lesson, and subtitles in all seven languages. Transcript and quiz are optional below the player.
+- Three original 32-second vertical MP4 shorts at 1080×1920 and 30fps, with animated explanations and ElevenLabs George English narration. Audio is embedded in the MP4 files, with no API calls during playback. The video player supports pause, seek, volume, fullscreen, next lesson, and subtitles in all seven languages. Transcript and quiz are optional below the player.
 - Keyboard accessible dialog and single-open FAQ accordion using the starter's Base UI / Shadcn components.
 - Reduced-motion support, visible focus indicators, and mobile navigation.
 - Android links go to the real Play Store listing. The iOS action opens the official website; no emails are collected by this concept.
@@ -56,7 +56,7 @@ If this folder is imported from a larger repository, set its root directory to `
 - `public/images`: locally served image assets.
 - `public/brand`: official owl and app-icon assets.
 - `public/videos`: production MP4s, posters and WebVTT subtitle tracks.
-- `video`: separate local Remotion renderer and offline narration scripts; see its README. Its dependencies are not needed to run or deploy the website.
+- `video`: separate local Remotion renderer, ElevenLabs generation script and offline narration fallback; see its README. Its dependencies are not needed to run or deploy the website.
 - `public/fonts`: locally served Manrope font files and license.
 - `public/credits.html`: attribution and concept disclosure.
 

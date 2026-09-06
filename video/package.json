@@ -31,8 +31,10 @@
     "lint": "eslint src && tsc",
     "prepare": "node scripts/prepare.mjs",
     "captions": "node scripts/captions.mjs",
+    "narrate:elevenlabs": "node scripts/elevenlabs.mjs",
+    "replace-audio": "node scripts/replace-audio.mjs",
     "render": "node scripts/export.mjs",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs && node scripts/verify-audio.mjs"
   },
   "sideEffects": [
     "*.css"

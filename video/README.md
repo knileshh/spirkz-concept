@@ -1,10 +1,25 @@
 # Spirkz local video workshop
 
-Three original 32-second educational shorts: the Moon, ocean color, and photosynthesis. Remotion 4.0.521 renders the animations at 1080×1920, 30 fps. Windows SAPI produces offline English narration using Microsoft Zira. No API keys, cloud rendering, or paid generation calls are required.
+Three original 32-second educational shorts: the Moon, ocean color, and photosynthesis. Remotion 4.0.521 renders the animations at 1080×1920, 30 fps. Current English narration uses ElevenLabs George (Multilingual v2), generated on 6 September 2026. Windows SAPI / Microsoft Zira remains an offline fallback.
 
-The production videos and 21 subtitle tracks live in `../public/videos` and are already included. The website does not need this renderer or its dependencies to run or deploy. Voice and visual labels remain English; the website selects subtitles in the chosen language. Phrase timings are estimated within each measured narration clip, not forced word alignment.
+The videos and 21 subtitle tracks live in `../public/videos` and are already included. Playback needs no API key. The website does not need this renderer or its dependencies to run or deploy. Voice and visual labels remain English; the website selects subtitles in the chosen language. English captions use ElevenLabs character alignment, adjusted for playback speed; translated phrase timings are estimated within each measured clip.
 
-## Rebuild locally
+The current audio was generated under the ElevenLabs free plan, which does not grant commercial usage rights. Before publishing a promotional site, regenerate narration under an appropriate license. Attribution: [elevenlabs.io](https://elevenlabs.io/). See [ElevenLabs publication rules](https://help.elevenlabs.io/hc/en-us/articles/13313564601361-Can-I-publish-the-content-I-generate-on-the-platform). The source MP3s and alignment are saved locally; the API key is never saved in this project.
+
+## Generate ElevenLabs narration
+
+Set `ELEVENLABS_API_KEY` securely in the process environment, then run:
+
+```powershell
+npm run narrate:elevenlabs
+npm run captions
+npm run replace-audio
+npm run verify
+```
+
+The script checks the account's included credits, uses the George stock voice and caches successful requests in ignored `out/elevenlabs`. `ELEVENLABS_VOICE_ID` optionally selects another voice. Delete the generation cache before regenerating under a new commercial license so older free-plan audio is not reused. The audio replacement script preserves every encoded video frame, fits clips into four eight-second scenes without changing pitch, and includes attribution in MP4 title metadata. Future full renders also use the selected narration and playback rates from `src/voice.json`.
+
+## Rebuild with the offline fallback
 
 Use Node.js 24 (or 22.13+) and Windows with the installed Microsoft Zira desktop voice. From this directory:
 

@@ -2,85 +2,85 @@
   "moon": [
     {
       "text": "Look up at the Moon tonight. Its",
-      "startMs": 166.66666666666666,
-      "endMs": 2420.8574701358207,
+      "startMs": 212.66666666666666,
+      "endMs": 2047.6666666666667,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "familiar pattern of dark plains always faces",
-      "startMs": 2420.8574701358207,
-      "endMs": 5520.369824905909,
+      "startMs": 2093.6666666666665,
+      "endMs": 4694.666666666667,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "roughly the same way.",
-      "startMs": 5520.369824905909,
-      "endMs": 6999.682539682541,
+      "startMs": 4775.666666666667,
+      "endMs": 5994.666666666667,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "The Moon turns once on its axis",
-      "startMs": 8166.666666666666,
-      "endMs": 10487.74125790667,
+      "startMs": 8187.375511400537,
+      "endMs": 9860.290012075886,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "in about 27.3 days. It also takes",
-      "startMs": 10487.74125790667,
-      "endMs": 12958.562596968612,
+      "startMs": 9922.4165462775,
+      "endMs": 12713.6086625819,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "about 27.3 days to orbit Earth.",
-      "startMs": 12958.562596968612,
-      "endMs": 15279.637188208615,
+      "startMs": 12745.122121959532,
+      "endMs": 15222.980413594923,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "This matching rhythm is called synchronous rotation.",
-      "startMs": 16166.666666666668,
-      "endMs": 19449.11644893946,
+      "startMs": 16212.666666666668,
+      "endMs": 18952.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "As the Moon moves around Earth, the",
-      "startMs": 19449.11644893946,
-      "endMs": 21658.457648546148,
+      "startMs": 19370.666666666668,
+      "endMs": 21193.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "same side keeps facing us.",
-      "startMs": 21658.457648546148,
-      "endMs": 23299.682539682544,
+      "startMs": 21240.666666666668,
+      "endMs": 22911.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "A gentle apparent wobble, called libration, lets",
-      "startMs": 24166.666666666668,
-      "endMs": 27482.888650196925,
+      "startMs": 24212.666666666668,
+      "endMs": 27185.66666666667,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "us see about 59% of the lunar",
-      "startMs": 27482.888650196925,
-      "endMs": 29486.439431913117,
+      "startMs": 27231.666666666668,
+      "endMs": 29135.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "surface over time.",
-      "startMs": 29486.439431913117,
-      "endMs": 30730.02267573696,
+      "startMs": 29182.666666666668,
+      "endMs": 30343.666666666668,
       "timestampMs": null,
       "confidence": null
     }
@@ -88,92 +88,92 @@
   "ocean": [
     {
       "text": "A glass of water looks clear. Yet",
-      "startMs": 166.66666666666666,
-      "endMs": 2859.8772552499263,
+      "startMs": 212.66666666666666,
+      "endMs": 2267.6666666666665,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "a deep ocean often looks blue. The",
-      "startMs": 2859.8772552499263,
-      "endMs": 5634.700285911466,
+      "startMs": 2314.6666666666665,
+      "endMs": 4729.666666666667,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "depth makes a difference.",
-      "startMs": 5634.700285911466,
-      "endMs": 7675.011337868481,
+      "startMs": 4787.666666666667,
+      "endMs": 5994.666666666667,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "Sunlight contains many wavelengths. Water absorbs the",
-      "startMs": 8166.666666666666,
-      "endMs": 11868.116618075803,
+      "startMs": 8189.666666666666,
+      "endMs": 11614.666666666666,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "red part of the spectrum more strongly",
-      "startMs": 11868.116618075803,
-      "endMs": 14521.986394557824,
+      "startMs": 11684.666666666664,
+      "endMs": 13576.666666666666,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "than the blue.",
-      "startMs": 14521.986394557824,
-      "endMs": 15499.727891156463,
+      "startMs": 13623.666666666664,
+      "endMs": 14459.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "As light travels through deep water, more",
-      "startMs": 16166.666666666668,
-      "endMs": 18619.134478650216,
+      "startMs": 16212.666666666668,
+      "endMs": 18546.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "of the red light is absorbed. The",
-      "startMs": 18619.134478650216,
-      "endMs": 20593.07198585649,
+      "startMs": 18581.666666666668,
+      "endMs": 20392.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "light that returns to our eyes is",
-      "startMs": 20593.07198585649,
-      "endMs": 22567.009493062764,
+      "startMs": 20462.666666666668,
+      "endMs": 22157.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "often blue.",
-      "startMs": 22567.009493062764,
-      "endMs": 23224.98866213152,
+      "startMs": 22215.666666666668,
+      "endMs": 23074.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "Plankton, sediment, depth and reflected sky can",
-      "startMs": 24166.666666666668,
-      "endMs": 26853.079811159438,
+      "startMs": 24200.386066391173,
+      "endMs": 27197.558996189102,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "all change the color. That is why",
-      "startMs": 26853.079811159438,
-      "endMs": 28739.284784952233,
+      "startMs": 27242.839332962005,
+      "endMs": 29188.930402776157,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "coastal water can look green or turquoise.",
-      "startMs": 28739.284784952233,
-      "endMs": 31139.909297052156,
+      "startMs": 29278.527664901267,
+      "endMs": 31459.691121366235,
       "timestampMs": null,
       "confidence": null
     }
@@ -181,85 +181,85 @@
   "fern": [
     {
       "text": "Inside a leaf, tiny structures called chloroplasts",
-      "startMs": 166.66666666666666,
-      "endMs": 3308.294657426833,
+      "startMs": 201.66666666666666,
+      "endMs": 3208.6666666666665,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "contain chlorophyll, a pigment that captures light",
-      "startMs": 3308.294657426833,
-      "endMs": 6449.922648187,
+      "startMs": 3277.6666666666665,
+      "endMs": 6064.666666666667,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "energy.",
-      "startMs": 6449.922648187,
-      "endMs": 6889.750566893424,
+      "startMs": 6122.666666666667,
+      "endMs": 6656.666666666667,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "Roots supply water. Small pores in the",
-      "startMs": 8166.666666666666,
-      "endMs": 11145.803840523551,
+      "startMs": 8201.666666666666,
+      "endMs": 10674.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "leaves let in carbon dioxide from the",
-      "startMs": 11145.803840523551,
-      "endMs": 14046.542667699992,
+      "startMs": 10732.666666666666,
+      "endMs": 12996.666666666666,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "air.",
-      "startMs": 14046.542667699992,
-      "endMs": 14360.13605442177,
+      "startMs": 13077.666666666666,
+      "endMs": 13483.666666666666,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "Photosynthesis uses light energy to help turn",
-      "startMs": 16166.666666666668,
-      "endMs": 19131.835426478283,
+      "startMs": 16189.666666666668,
+      "endMs": 18976.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "water and carbon dioxide into sugars that",
-      "startMs": 19131.835426478283,
-      "endMs": 21833.433629862204,
+      "startMs": 19045.666666666668,
+      "endMs": 21669.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "support the plant.",
-      "startMs": 21833.433629862204,
-      "endMs": 23019.50113378685,
+      "startMs": 21704.666666666668,
+      "endMs": 22772.666666666664,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "Oxygen is released along the way. The",
-      "startMs": 24166.666666666668,
-      "endMs": 26852.13196389667,
+      "startMs": 24212.666666666668,
+      "endMs": 26349.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "green world around us is doing chemistry",
-      "startMs": 26852.13196389667,
-      "endMs": 29755.337690631808,
+      "startMs": 26407.666666666668,
+      "endMs": 28369.666666666668,
       "timestampMs": null,
       "confidence": null
     },
     {
       "text": "with sunlight, every day.",
-      "startMs": 29755.337690631808,
-      "endMs": 31569.84126984127,
+      "startMs": 28404.666666666668,
+      "endMs": 29959.666666666668,
       "timestampMs": null,
       "confidence": null
     }

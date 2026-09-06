@@ -25,6 +25,29 @@ const captions = {};
 for (const lesson of lessons) {
   for (const [locale, strings] of Object.entries(catalogs)) {
     const cues = lesson.chapters.flatMap((chapter, i) => {
+      const clip = voice[lesson.id][i];
+      if (locale === 'en' && clip.alignment) {
+        const a = clip.alignment;
+        const alignedText = a.characters.join('');
+        const words = [...alignedText.matchAll(/\S+/g)];
+        const cues = [];
+        for (let w = 0; w < words.length; w += 7) {
+          const group = words.slice(w, w + 7);
+          const first = group[0].index;
+          const last = group.at(-1).index + group.at(-1)[0].length - 1;
+          const offset = i * 8 + 5 / 30;
+          const rate = clip.playbackRate ?? 1;
+          cues.push({
+            text: group.map((word) => word[0]).join(' '),
+            startMs:
+              (offset + a.character_start_times_seconds[first] / rate) * 1000,
+            endMs: (offset + a.character_end_times_seconds[last] / rate) * 1000,
+            timestampMs: null,
+            confidence: null,
+          });
+        }
+        return cues;
+      }
       const words = (strings[chapter.text] ?? chapter.text).split(' ');
       const chunks = [];
       for (let w = 0; w < words.length; w += 7)
@@ -66,5 +89,5 @@ fs.writeFileSync(
   JSON.stringify(captions, null, 2) + '\n',
 );
 console.log(
-  'Created 21 subtitle tracks. Timing follows local narration clips; phrase boundaries are estimated.',
+  'Created 21 subtitle tracks. English uses provider alignment when available; translated phrase boundaries are estimated.',
 );

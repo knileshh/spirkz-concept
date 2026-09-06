@@ -59,10 +59,10 @@ export function VideoLessonPlayer({
           aria-label={lesson.question}
           onError={() => setError(true)}
         >
-          <source src={`/videos/${lesson.id}.mp4`} type="video/mp4" />
+          <source src={`/videos/${lesson.id}.mp4?v=george-1`} type="video/mp4" />
           <track
             kind="captions"
-            src={`/videos/${lesson.id}.en.vtt`}
+            src={`/videos/${lesson.id}.en.vtt?v=george-1`}
             srcLang="en"
             label="English"
             default={locale === 'en'}
@@ -73,7 +73,7 @@ export function VideoLessonPlayer({
               <track
                 key={language.code}
                 kind="subtitles"
-                src={`/videos/${lesson.id}.${language.code}.vtt`}
+                src={`/videos/${lesson.id}.${language.code}.vtt?v=george-1`}
                 srcLang={language.code}
                 label={language.name}
                 default={language.code === locale}
