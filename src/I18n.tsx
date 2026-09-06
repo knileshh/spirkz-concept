@@ -15,13 +15,13 @@ import mt from './locales/mt.json';
 import ka from './locales/ka.json';
 
 export const languages = [
-  { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'fr', name: 'Français' },
-  { code: 'ru', name: 'Русский' },
-  { code: 'mt', name: 'Malti' },
-  { code: 'ka', name: 'ქართული' },
+  { code: 'en', name: 'English', flag: 'gb' },
+  { code: 'es', name: 'Español', flag: 'es' },
+  { code: 'de', name: 'Deutsch', flag: 'de' },
+  { code: 'fr', name: 'Français', flag: 'fr' },
+  { code: 'ru', name: 'Русский', flag: 'ru' },
+  { code: 'mt', name: 'Malti', flag: 'mt' },
+  { code: 'ka', name: 'ქართული', flag: 'ge' },
 ] as const;
 export type Locale = (typeof languages)[number]['code'];
 export const catalogs: Record<Locale, Record<string, string>> = {

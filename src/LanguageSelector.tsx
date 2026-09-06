@@ -4,11 +4,13 @@ import {
   SelectItem,
   SelectTrigger,
 } from '@/components/ui/select';
-import { Globe } from './icons';
 import { languages, useI18n, validLocale } from './I18n';
 
 export function LanguageSelector() {
   const { locale, setLocale, t } = useI18n();
+  const selectedLanguage = languages.find(
+    (language) => language.code === locale,
+  )!;
   return (
     <div className="language-picker">
       <Select
@@ -22,7 +24,13 @@ export function LanguageSelector() {
           aria-label={t('Website language')}
           title={t('Language')}
         >
-          <Globe size={18} aria-hidden="true" />
+          <img
+            className="language-flag"
+            src={`/flags/${selectedLanguage.flag}.svg`}
+            width="20"
+            height="15"
+            alt=""
+          />
           <span lang={locale}>{locale.toUpperCase()}</span>
         </SelectTrigger>
         <SelectContent
@@ -32,7 +40,16 @@ export function LanguageSelector() {
         >
           {languages.map((language) => (
             <SelectItem key={language.code} value={language.code}>
-              <span lang={language.code}>{language.name}</span>
+              <span className="language-option-label" lang={language.code}>
+                <img
+                  className="language-flag"
+                  src={`/flags/${language.flag}.svg`}
+                  width="20"
+                  height="15"
+                  alt=""
+                />
+                {language.name}
+              </span>
             </SelectItem>
           ))}
         </SelectContent>

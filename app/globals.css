@@ -2488,6 +2488,20 @@ footer {
   padding: 6px;
   background: #fbfcf8;
 }
+.language-flag {
+  display: block;
+  flex: 0 0 20px;
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgb(24 45 39 / 12%);
+}
+.language-option-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 .language-options [data-slot='select-item'] {
   padding: 11px 32px 11px 12px;
   font-size: 15px;
