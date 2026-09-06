@@ -32,6 +32,8 @@ If this folder is imported from a larger repository, set its root directory to `
 
 - Complete original section coverage: About, Why Spirkz, all 12 topics, creators, app, iOS updates, FAQs, investors, contact details and official legal links, alongside the concept lessons and course journey.
 - Responsive landing page with self-hosted real science photographs, Manrope fonts and Phosphor Icons.
+- Official Spirkz owl branding from its Google Play listing and website.
+- English, Spanish, German, French, Russian, Maltese and Georgian, matching the original website. The selector translates the page and sample lessons, remembers the choice locally, and supports shareable `?lang=ka` links.
 - A correctly proportioned, clickable phone concept.
 - Three original 32-second animated, caption-led sample lessons. Play/pause, seek, chapter selection, replay, next lesson, and an end-of-lesson quiz work locally.
 - Keyboard accessible dialog and single-open FAQ accordion using the starter's Base UI / Shadcn components.
@@ -47,8 +49,11 @@ If this folder is imported from a larger repository, set its root directory to `
 - `src/content.ts`: shared section navigation, all topics and FAQ content.
 - `src/icons.ts`: directly imported Phosphor icons.
 - `src/lessons.ts`: lesson captions, references, and app links.
+- `src/I18n.tsx` and `src/LanguageSelector.tsx`: language selection and persistence.
+- `src/locales/*.json`: complete translation catalogs, keyed by the English source text. Add new strings to all seven files. Translations should receive native-speaker editorial review before an official launch.
 - `app/globals.css`: visual theme and responsive styling.
 - `public/images`: locally served image assets.
+- `public/brand`: official owl and app-icon assets.
 - `public/fonts`: locally served Manrope font files and license.
 - `public/credits.html`: attribution and concept disclosure.
 
@@ -58,4 +63,4 @@ The scaffold was adapted to use Vite's static build so it can be deployed on Ver
 
 This is an outreach concept, not an official Spirkz site or app. It does not include live Spirkz footage, a recommendation system, a course backend, or an email service. Its sample course path is illustrative, and the photo and content credits should stay with the demo.
 
-TypeScript, lint, lesson checks, server-rendered section coverage, and navigation CSS regression checks at 320–1440px are provided. Browser interaction and responsive visual QA have not been performed in this task.
+TypeScript, lint, lesson checks, translation completeness and placeholder checks, server-rendered coverage for all seven languages, and navigation CSS regression checks at 320–1440px are provided. The standalone credits page remains in English. Browser interaction and responsive visual QA have not been performed in this task.

@@ -1,3 +1,5 @@
+import { useI18n } from './I18n';
+import { LanguageSelector } from './LanguageSelector';
 import React, { useEffect, useRef, useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import {
@@ -44,23 +46,34 @@ import {
 } from './Sections';
 
 const PlayIcon = () => <Play size={16} weight="fill" aria-hidden="true" />;
-const Brand = () => (
-  <a href="#main" className="brand" aria-label="Spirkz home">
-    <span>
-      spirkz<span className="brand-dot">.</span>
-    </span>
-  </a>
-);
-const StoreButton = () => (
-  <a
-    className="button button-dark"
-    href={PLAY_STORE}
-    target="_blank"
-    rel="noreferrer"
-  >
-    <PlayIcon /> Get it on Google Play <ArrowUpRight size={18} />
-  </a>
-);
+const Brand = () => {
+  const { t } = useI18n();
+  return (
+    <a href="#main" className="brand" aria-label={t('Spirkz home')}>
+      <img
+        className="official-logo"
+        src="/brand/spirkz-app-icon.png"
+        alt=""
+        width="56"
+        height="56"
+      />
+      <span>spirkz</span>
+    </a>
+  );
+};
+const StoreButton = () => {
+  const { t } = useI18n();
+  return (
+    <a
+      className="button button-dark"
+      href={PLAY_STORE}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <PlayIcon /> {t('Get it on Google Play')} <ArrowUpRight size={18} />
+    </a>
+  );
+};
 
 function LessonPlayer({
   selected,
@@ -71,10 +84,11 @@ function LessonPlayer({
   onSelect: (n: number | null) => void;
   returnFocus: React.RefObject<HTMLElement | null>;
 }) {
+  const { t, localize } = useI18n();
   const [elapsed, setElapsed] = useState(0);
   const [requestedPlayback, setPlaying] = useState(selected !== null);
   const [answer, setAnswer] = useState<number | null>(null);
-  const lesson = lessons[selected ?? 0];
+  const lesson = localize(lessons[selected ?? 0]);
   const playing = requestedPlayback && elapsed < lesson.duration;
   useEffect(() => {
     if (!playing || selected === null) return;
@@ -112,7 +126,7 @@ function LessonPlayer({
       >
         <DialogClose
           className="player-close icon-button"
-          aria-label="Close lesson"
+          aria-label={t('Close lesson')}
         >
           <X />
         </DialogClose>
@@ -124,7 +138,9 @@ function LessonPlayer({
           />
           <div className="lesson-topline">
             <span>spirkz.</span>
-            <span>SAMPLE LESSON · {lesson.category}</span>
+            <span>
+              {t('SAMPLE LESSON ·')} {lesson.category}
+            </span>
           </div>
           <div className="lesson-captions">
             <span className="eyebrow">
@@ -135,7 +151,7 @@ function LessonPlayer({
           </div>
           <div className="player-controls">
             <span className="sr-only" id="lesson-seek-label">
-              Lesson progress in seconds
+              {t('Lesson progress in seconds')}{' '}
             </span>
             <Slider
               min={0}
@@ -153,10 +169,10 @@ function LessonPlayer({
                 className="icon-button"
                 aria-label={
                   finished
-                    ? 'Replay lesson'
+                    ? t('Replay lesson')
                     : playing
-                      ? 'Pause lesson'
-                      : 'Play lesson'
+                      ? t('Pause lesson')
+                      : t('Play lesson')
                 }
                 onClick={() => (finished ? replay() : setPlaying((p) => !p))}
               >
@@ -173,17 +189,18 @@ function LessonPlayer({
                 {lesson.duration}
               </span>
               <span className="caption-note">
-                <VolumeX size={16} /> Caption-led lesson
+                <VolumeX size={16} /> {t('Caption-led lesson')}{' '}
               </span>
             </div>
           </div>
         </div>
         <div className="lesson-notes">
-          <span className="eyebrow">A LITTLE MOMENT OF DISCOVERY</span>
+          <span className="eyebrow">{t('A LITTLE MOMENT OF DISCOVERY')}</span>
           <DialogTitle className="player-title">{lesson.question}</DialogTitle>
           <DialogDescription className="player-description">
-            An original animated sample for this website concept. Read along,
-            pause, or jump to a chapter.
+            {t(
+              'An original animated sample for this website concept. Read along, pause, or jump to a chapter.',
+            )}{' '}
           </DialogDescription>
           <div className="chapter-list">
             {lesson.chapters.map((item, i) => (
@@ -195,7 +212,10 @@ function LessonPlayer({
                   setPlaying(true);
                   setAnswer(null);
                 }}
-                aria-label={`Jump to chapter ${i + 1}: ${item.title}`}
+                aria-label={t('Jump to chapter {number}: {title}', {
+                  number: i + 1,
+                  title: item.title,
+                })}
                 aria-current={i === chapter ? 'step' : undefined}
               >
                 <span>{String(i + 1).padStart(2, '0')}</span>
@@ -206,7 +226,7 @@ function LessonPlayer({
           </div>
           {finished ? (
             <div className="quiz" aria-live="polite">
-              <span className="eyebrow">ONE QUICK CHECK</span>
+              <span className="eyebrow">{t('ONE QUICK CHECK')}</span>
               <h3>{lesson.quiz}</h3>
               <div className="quiz-answers">
                 {lesson.answers.map((item, i) => (
@@ -232,14 +252,16 @@ function LessonPlayer({
                 <p>
                   {answer === lesson.correct
                     ? lesson.explanation
-                    : 'Take another look at the lesson, then try the other answer.'}
+                    : t(
+                        'Take another look at the lesson, then try the other answer.',
+                      )}
                 </p>
               )}
             </div>
           ) : (
             <p className="lesson-hint">
-              <CheckCircle size={17} /> Stay to the end for a quick knowledge
-              check.
+              <CheckCircle size={17} />{' '}
+              {t('Stay to the end for a quick knowledge check.')}{' '}
             </p>
           )}
           <div className="lesson-bottom">
@@ -250,8 +272,7 @@ function LessonPlayer({
             <button
               onClick={() => onSelect(((selected ?? 0) + 1) % lessons.length)}
             >
-              Next lesson
-              <ArrowRight size={16} />
+              {t('Next lesson')} <ArrowRight size={16} />
             </button>
           </div>
         </div>
@@ -261,6 +282,7 @@ function LessonPlayer({
 }
 
 function App() {
+  const { t, localize, locale } = useI18n();
   const [selected, setSelected] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
   const returnFocus = useRef<HTMLElement | null>(null);
@@ -296,14 +318,14 @@ function App() {
   return (
     <>
       <a href="#main" className="skip-link">
-        Skip to content
+        {t('Skip to content')}{' '}
       </a>
       <header className="site-header wrap" ref={headerRef}>
         <Brand />
-        <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="#discover">Discover</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#faq">FAQs</a>
+        <nav className="desktop-nav" aria-label={t('Main navigation')}>
+          <a href="#discover">{t('Discover')}</a>
+          <a href="#how-it-works">{t('How it works')}</a>
+          <a href="#faq">{t('FAQs')}</a>
         </nav>
         <a
           className="header-cta"
@@ -311,22 +333,27 @@ function App() {
           target="_blank"
           rel="noreferrer"
         >
-          Get the app <ArrowUpRight size={17} />
+          {t('Get the app')} <ArrowUpRight size={17} />
         </a>
+        <LanguageSelector />
         <button
           className="mobile-toggle icon-button"
           ref={menuButtonRef}
           type="button"
           onClick={() => setMobileMenu((p) => !p)}
-          aria-label={mobileMenu ? 'Close navigation' : 'Open navigation'}
+          aria-label={t(mobileMenu ? 'Close navigation' : 'Open navigation')}
           aria-expanded={mobileMenu}
           aria-controls="mobile-nav"
         >
           {mobileMenu ? <X /> : <Menu />}
         </button>
         {mobileMenu && (
-          <nav className="mobile-nav" id="mobile-nav" aria-label="All sections">
-            {navigation.map(([label, href]) => (
+          <nav
+            className="mobile-nav"
+            id="mobile-nav"
+            aria-label={t('All sections')}
+          >
+            {localize(navigation).map(([label, href]) => (
               <a key={href} href={href} onClick={() => setMobileMenu(false)}>
                 {label}
                 <ArrowUpRight size={18} />
@@ -339,17 +366,17 @@ function App() {
         <section className="hero wrap">
           <div className="hero-copy">
             <div className="availability">
-              <span /> LESS SCROLLING. MORE SPARKS.
+              <span /> {t('LESS SCROLLING. MORE SPARKS.')}{' '}
             </div>
             <h1>
-              A little scroll.
-              <br />A lot to
-              <br />
-              <em>discover.</em>
+              {t('A little scroll.')} <br />
+              {t('A lot to')} <br />
+              <em>{t('discover.')}</em>
             </h1>
             <p>
-              Your curiosity deserves a better feed. Explore big ideas in short
-              lessons — and turn your next spare minute into something good.
+              {t(
+                'Your curiosity deserves a better feed. Explore big ideas in short lessons — and turn your next spare minute into something good.',
+              )}{' '}
             </p>
             <div className="hero-actions">
               <StoreButton />
@@ -357,14 +384,14 @@ function App() {
                 <span className="small-play">
                   <PlayIcon />
                 </span>{' '}
-                Try a lesson
+                {t('Try a lesson')}{' '}
               </button>
             </div>
             <div className="hero-footnote">
-              <span>Free on Android</span>
+              <span>{t('Free on Android')}</span>
               <span>·</span>
               <a href="#faq">
-                iOS is on its way <ArrowRight size={13} />
+                {t('iOS is on its way')} <ArrowRight size={13} />
               </a>
             </div>
           </div>
@@ -372,20 +399,23 @@ function App() {
             <div className="visual-field" aria-hidden="true">
               <div className="orbit orbit-one" />
               <div className="orbit orbit-two" />
-              <span className="field-label">FOLLOW YOUR CURIOSITY</span>
+              <span className="field-label">{t('FOLLOW YOUR CURIOSITY')}</span>
             </div>
             <div className="floating-note note-top">
               <span className="note-icon">
                 <Compass size={19} />
               </span>
               <div>
-                A new perspective.<small>Just one minute away.</small>
+                {t('A new perspective.')}
+                <small>{t('Just one minute away.')}</small>
               </div>
             </div>
             <button
               className="phone"
               onClick={() => openLesson(0)}
-              aria-label="Play sample lesson: Why do we see the same side of the Moon?"
+              aria-label={t(
+                'Play sample lesson: Why do we see the same side of the Moon?',
+              )}
             >
               <span className="phone-camera" />
               <span className="phone-top">
@@ -396,38 +426,39 @@ function App() {
                 </span>
               </span>
               <span className="phone-nav">
-                <b>spirkz.</b>
+                <b className="phone-brand">
+                  <img src="/brand/spirkz-owl.png" alt="" />
+                  spirkz
+                </b>
                 <span>
-                  For you <i />
+                  {t('For you')} <i />
                 </span>
                 <Bookmark size={16} />
               </span>
               <img
                 className="phone-moon"
                 src="/images/moon.jpg"
-                alt="The Moon photographed by the Galileo spacecraft"
+                alt={t('The Moon photographed by the Galileo spacecraft')}
                 fetchPriority="high"
               />
-              <span className="phone-topic">SPACE & CURIOSITY</span>
+              <span className="phone-topic">{t('SPACE & CURIOSITY')}</span>
               <span className="phone-title">
-                Same Moon.
-                <br />
-                Same face.
-                <br />
-                <em>But why?</em>
+                {t('Same Moon.')} <br />
+                {t('Same face.')} <br />
+                <em>{t('But why?')}</em>
               </span>
               <span className="phone-play">
                 <Play size={22} weight="fill" />
               </span>
               <span className="phone-bottom">
                 <span>
-                  ONE SMALL LESSON <b>0:32</b>
+                  {t('ONE SMALL LESSON')} <b>0:32</b>
                 </span>
                 <span className="phone-progress">
                   <i />
                 </span>
                 <small>
-                  Tap to discover <ArrowUpRight size={12} />
+                  {t('Tap to discover')} <ArrowUpRight size={12} />
                 </small>
               </span>
             </button>
@@ -436,34 +467,35 @@ function App() {
                 <BookOpen size={19} />
               </span>
               <div>
-                Big ideas. Small lessons.<small>Made for your everyday.</small>
+                {t('Big ideas. Small lessons.')}
+                <small>{t('Made for your everyday.')}</small>
               </div>
             </div>
             <span className="sample-label">
-              A PEEK AT THE POSSIBILITIES · CONCEPT PREVIEW
+              {t('A PEEK AT THE POSSIBILITIES · CONCEPT PREVIEW')}{' '}
             </span>
           </div>
         </section>
         <div className="topic-ribbon">
           <div className="wrap">
-            <span>A WORLD TO GET INTO</span>
+            <span>{t('A WORLD TO GET INTO')}</span>
             <span>
-              Science <i aria-hidden="true">·</i>
+              {t('Science')} <i aria-hidden="true">·</i>
             </span>
             <span>
-              History <i aria-hidden="true">·</i>
+              {t('History')} <i aria-hidden="true">·</i>
             </span>
             <span>
-              Languages <i aria-hidden="true">·</i>
+              {t('Languages')} <i aria-hidden="true">·</i>
             </span>
             <span>
-              Nature <i aria-hidden="true">·</i>
+              {t('Nature')} <i aria-hidden="true">·</i>
             </span>
             <span>
-              Technology <i aria-hidden="true">·</i>
+              {t('Technology')} <i aria-hidden="true">·</i>
             </span>
             <span>
-              And your next obsession <ArrowUpRight size={17} />
+              {t('And your next obsession')} <ArrowUpRight size={17} />
             </span>
           </div>
         </div>
@@ -473,34 +505,35 @@ function App() {
         <section id="discover" className="discover wrap section-space">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">FEED YOUR CURIOSITY</span>
+              <span className="eyebrow">{t('FEED YOUR CURIOSITY')}</span>
               <h2>
-                Start with a little <em>“wait, really?”</em>
+                {t('Start with a little')} <em>{t('“wait, really?”')}</em>
               </h2>
             </div>
             <p>
-              No long introductions.
-              <br />
-              Just something worth knowing.
+              {t('No long introductions.')} <br />
+              {t('Just something worth knowing.')}{' '}
             </p>
           </div>
           <div className="lesson-cards">
-            {lessons.map((lesson, i) => (
+            {localize(lessons).map((lesson, i) => (
               <button
                 key={lesson.id}
                 className={`lesson-card lesson-card-${lesson.id}`}
                 onClick={() => openLesson(i)}
-                aria-label={`Play sample lesson: ${lesson.question}`}
+                aria-label={t('Play sample lesson: {question}', {
+                  question: lesson.question,
+                })}
               >
                 <div className="card-image">
                   <img
                     src={lesson.image}
                     alt={
                       i === 0
-                        ? 'A detailed view of the Moon'
+                        ? t('A detailed view of the Moon')
                         : i === 1
-                          ? 'Turquoise waves in the ocean'
-                          : 'Sunlit green fern leaves'
+                          ? t('Turquoise waves in the ocean')
+                          : t('Sunlit green fern leaves')
                     }
                     loading="lazy"
                   />
@@ -514,65 +547,69 @@ function App() {
                   <h3>{lesson.title}</h3>
                   <p>{lesson.description}</p>
                   <span>
-                    Discover something new <ArrowUpRight size={18} />
+                    {t('Discover something new')} <ArrowUpRight size={18} />
                   </span>
                 </div>
               </button>
             ))}
           </div>
           <p className="sample-disclosure">
-            Original sample lessons for this concept. A little taste of what
-            learning could feel like.
+            {t(
+              'Original sample lessons for this concept. A little taste of what learning could feel like.',
+            )}{' '}
           </p>
         </section>
         <section id="how-it-works" className="journey-section">
           <div className="wrap journey">
             <div className="journey-copy">
-              <span className="eyebrow">A SPARK IS JUST THE START</span>
+              <span className="eyebrow">{t('A SPARK IS JUST THE START')}</span>
               <h2>
-                From “that’s cool”
-                <br />
-                to <em>“I get it.”</em>
+                {t('From “that’s cool”')} <br />
+                {t('to')} <em>{t('“I get it.”')}</em>
               </h2>
               <p>
-                Sometimes one little idea opens a whole new world. Follow that
-                feeling — from a quick discovery to a course that connects the
-                dots.
+                {t(
+                  'Sometimes one little idea opens a whole new world. Follow that feeling — from a quick discovery to a course that connects the dots.',
+                )}{' '}
               </p>
               <button className="text-button" onClick={() => openLesson(0)}>
-                Take your first little step <ArrowUpRight size={20} />
+                {t('Take your first little step')} <ArrowUpRight size={20} />
               </button>
               <div className="journey-stamp">
-                <BookOpen size={19} /> SMALL STEPS. REAL DISCOVERIES.
+                <BookOpen size={19} />{' '}
+                {t('SMALL STEPS. REAL DISCOVERIES.')}{' '}
               </div>
             </div>
             <div className="journey-steps">
               <div className="journey-step">
                 <span className="step-number">01</span>
                 <div>
-                  <h3>Find your spark.</h3>
+                  <h3>{t('Find your spark.')}</h3>
                   <p>
-                    A question you never thought to ask. A topic you didn’t know
-                    you loved.
+                    {t(
+                      'A question you never thought to ask. A topic you didn’t know you loved.',
+                    )}{' '}
                   </p>
                   <span className="example-pill">
-                    <Moon size={14} /> Why does the Moon always look familiar?
+                    <Moon size={14} />{' '}
+                    {t('Why does the Moon always look familiar?')}{' '}
                   </span>
                 </div>
               </div>
               <div className="journey-step">
                 <span className="step-number">02</span>
                 <div>
-                  <h3>Go a little deeper.</h3>
+                  <h3>{t('Go a little deeper.')}</h3>
                   <p>
-                    Follow short, connected lessons. Build understanding one
-                    idea at a time.
+                    {t(
+                      'Follow short, connected lessons. Build understanding one idea at a time.',
+                    )}{' '}
                   </p>
                   <div className="course-example">
                     <BookOpen size={20} />
                     <span>
-                      A little guide to our Moon
-                      <small>EXAMPLE COURSE PATH</small>
+                      {t('A little guide to our Moon')}{' '}
+                      <small>{t('EXAMPLE COURSE PATH')}</small>
                     </span>
                     <div className="mini-progress">
                       <i />
@@ -586,10 +623,11 @@ function App() {
               <div className="journey-step">
                 <span className="step-number">03</span>
                 <div>
-                  <h3>Leave knowing more.</h3>
+                  <h3>{t('Leave knowing more.')}</h3>
                   <p>
-                    Keep the ideas that click. Bring a little more curiosity
-                    into your everyday.
+                    {t(
+                      'Keep the ideas that click. Bring a little more curiosity into your everyday.',
+                    )}{' '}
                   </p>
                 </div>
               </div>
@@ -600,30 +638,30 @@ function App() {
         <AppSection onLesson={openLesson} />
         <section id="faq" className="wrap faq-section section-space">
           <div className="ios-panel" id="notify">
-            <span className="eyebrow">BE THE FIRST TO KNOW</span>
+            <span className="eyebrow">{t('BE THE FIRST TO KNOW')}</span>
             <h2>
-              iPhone in your pocket?
-              <br />
-              <em>You’re next.</em>
+              {t('iPhone in your pocket?')} <br />
+              <em>{t('You’re next.')}</em>
             </h2>
             <p>
-              Spirkz is live on Android, with iOS on the way. Get launch updates
-              from the team on the official website.
+              {t(
+                'Spirkz is live on Android, with iOS on the way. Get launch updates from the team on the official website.',
+              )}{' '}
             </p>
             <a
-              href={OFFICIAL_SITE}
+              href={`${OFFICIAL_SITE}${locale}`}
               target="_blank"
               rel="noreferrer"
               className="button button-outline"
             >
-              Keep me in the loop <ArrowUpRight size={18} />
+              {t('Keep me in the loop')} <ArrowUpRight size={18} />
             </a>
-            <small>Opens the official Spirkz website.</small>
+            <small>{t('Opens the official Spirkz website.')}</small>
           </div>
           <div className="faqs">
-            <h2>A few good questions.</h2>
+            <h2>{t('A few good questions.')}</h2>
             <Accordion defaultValue={['faq-0']} multiple={false}>
-              {faqs.map(([question, answer], i) => (
+              {localize(faqs).map(([question, answer], i) => (
                 <AccordionItem key={question} value={`faq-${i}`}>
                   <AccordionTrigger>{question}</AccordionTrigger>
                   <AccordionContent>{answer}</AccordionContent>
@@ -636,9 +674,11 @@ function App() {
         <section className="wrap">
           <div className="closing-cta">
             <div>
-              <span className="eyebrow">YOUR NEXT MINUTE HAS POTENTIAL</span>
+              <span className="eyebrow">
+                {t('YOUR NEXT MINUTE HAS POTENTIAL')}
+              </span>
               <h2>
-                Make room for a little <em>wonder.</em>
+                {t('Make room for a little')} <em>{t('wonder.')}</em>
               </h2>
             </div>
             <StoreButton />
@@ -648,19 +688,24 @@ function App() {
       <footer className="wrap">
         <div className="footer-top">
           <Brand />
-          <p>Short videos. A world of possibility.</p>
-          <a href={OFFICIAL_SITE} target="_blank" rel="noreferrer">
-            Visit the official Spirkz site <ArrowUpRight size={16} />
+          <p>{t('Short videos. A world of possibility.')}</p>
+          <a
+            href={`${OFFICIAL_SITE}${locale}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('Visit the official Spirkz site')} <ArrowUpRight size={16} />
           </a>
         </div>
         <FooterLinks />
         <div className="footer-bottom">
           <span>
-            Independent design concept by Nilesh. Not the official Spirkz
-            website.
+            {t(
+              'Independent design concept by Nilesh. Not the official Spirkz website.',
+            )}{' '}
           </span>
           <a href="/credits.html">
-            Photo & lesson credits <ArrowUpRight size={12} />
+            {t('Photo & lesson credits')} <ArrowUpRight size={12} />
           </a>
         </div>
       </footer>

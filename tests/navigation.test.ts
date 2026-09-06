@@ -9,7 +9,7 @@ import { navigation, topics, faqs } from '../src/content.ts';
 
 test('the rendered page contains every navigation destination and original topic', async () => {
   const server = await createServer({
-    server: { middlewareMode: true },
+    server: { middlewareMode: true, hmr: false, ws: false },
     appType: 'custom',
   });
   try {
