@@ -1,10 +1,10 @@
 # Spirkz social preview
 
-Master artwork: `public/og.png` (1730 × 909 PNG). Shared asset: `public/og-share-v2.jpg` (1200 × 630 JPEG, approximately 104 KB), resized and encoded from the master with FFmpeg. Open Graph and X reference the smaller, versioned JPEG URL. This reduces the download from 1.3 MB without changing the design; it does not guarantee refresh of previews already stored by messaging apps.
+Master artwork: `public/og.png` (1730 × 909 PNG). Shared asset: `public/og-share-v3.jpg` (1200 × 630 JPEG, under 110 KB, using 4:2:0 chroma subsampling for decoder compatibility), resized and encoded from the master with FFmpeg. Open Graph and X reference the smaller, versioned JPEG URL. This reduces the download from 1.3 MB without changing the design; it does not guarantee refresh of previews already stored by messaging apps.
 
 Created with the built-in image-generation tool, using the official Spirkz owl app icon as the brand reference. This is concept artwork, not a screenshot of the live Spirkz application.
 
-Open Graph and X tags are emitted directly in `index.html`, so preview crawlers do not need JavaScript. The production origin is `https://spirkz-concept.vercel.app`; update the absolute metadata URLs if the public domain changes.
+Open Graph and X tags are emitted directly in `index.html`, so preview crawlers do not need JavaScript. The production origin is `https://spirkz-concept.knileshh.com`; update the absolute metadata URLs if the public domain changes.
 
 ## Generation prompt
 
