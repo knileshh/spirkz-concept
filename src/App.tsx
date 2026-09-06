@@ -7,14 +7,17 @@ import {
   Pause,
   RotateCcw,
   Check,
-  Zap,
   Menu,
   X,
   BookOpen,
   Bookmark,
-  Sparkles,
+  Compass,
+  CheckCircle,
+  Moon,
+  CellSignal,
+  Battery,
   VolumeX,
-} from 'lucide-react';
+} from './icons';
 import {
   Dialog,
   DialogClose,
@@ -29,13 +32,20 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { lessons, PLAY_STORE, OFFICIAL_SITE, chapterAt } from './lessons';
+import { navigation, faqs } from './content';
+import {
+  AboutSection,
+  WhySection,
+  TopicsSection,
+  CreatorsSection,
+  AppSection,
+  InvestSection,
+  FooterLinks,
+} from './Sections';
 
-const PlayIcon = () => (
-  <Play size={16} fill="currentColor" aria-hidden="true" />
-);
+const PlayIcon = () => <Play size={16} weight="fill" aria-hidden="true" />;
 const Brand = () => (
   <a href="#main" className="brand" aria-label="Spirkz home">
-    <Zap fill="currentColor" strokeWidth={1.7} />
     <span>
       spirkz<span className="brand-dot">.</span>
     </span>
@@ -113,9 +123,7 @@ function LessonPlayer({
             className={playing ? 'lesson-photo is-playing' : 'lesson-photo'}
           />
           <div className="lesson-topline">
-            <span>
-              <Zap size={16} fill="currentColor" /> spirkz
-            </span>
+            <span>spirkz.</span>
             <span>SAMPLE LESSON · {lesson.category}</span>
           </div>
           <div className="lesson-captions">
@@ -155,9 +163,9 @@ function LessonPlayer({
                 {finished ? (
                   <RotateCcw />
                 ) : playing ? (
-                  <Pause fill="currentColor" />
+                  <Pause weight="fill" />
                 ) : (
-                  <Play fill="currentColor" />
+                  <Play weight="fill" />
                 )}
               </button>
               <span>
@@ -230,7 +238,7 @@ function LessonPlayer({
             </div>
           ) : (
             <p className="lesson-hint">
-              <Sparkles size={17} /> Stay to the end for a quick knowledge
+              <CheckCircle size={17} /> Stay to the end for a quick knowledge
               check.
             </p>
           )}
@@ -256,38 +264,41 @@ function App() {
   const [selected, setSelected] = useState<number | null>(null);
   const [mobileMenu, setMobileMenu] = useState(false);
   const returnFocus = useRef<HTMLElement | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => {
+    if (!mobileMenu) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenu(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    const onOutside = (event: PointerEvent) => {
+      if (
+        event.target instanceof Node &&
+        !headerRef.current?.contains(event.target)
+      )
+        setMobileMenu(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onOutside);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onOutside);
+    };
+  }, [mobileMenu]);
   const openLesson = (id: number) => {
     returnFocus.current = document.activeElement as HTMLElement;
     setSelected(id);
   };
-  const faqs = [
-    [
-      'What is Spirkz?',
-      'Spirkz is a mobile app for short educational videos. Explore something new in the feed, or follow a subject through a series of bite-sized lessons.',
-    ],
-    [
-      'How is it different from other video feeds?',
-      'Spirkz focuses on educational content. The idea is simple: every short video should leave you knowing something you did not know before.',
-    ],
-    [
-      'Is the app free?',
-      'Spirkz currently describes its Android app as free to download and free to learn from. Check the official Google Play listing for the latest availability and details.',
-    ],
-    [
-      'Can I use Spirkz on my iPhone?',
-      'The Spirkz website currently lists iOS as coming soon. Use the link beside these questions to visit the official site and sign up for launch updates.',
-    ],
-    [
-      'Are these lessons from the Spirkz app?',
-      'These three caption-led lessons were created specifically for this independent website concept. They demonstrate the experience; they are not recordings of the live Spirkz app.',
-    ],
-  ];
+
   return (
     <>
       <a href="#main" className="skip-link">
         Skip to content
       </a>
-      <header className="site-header wrap">
+      <header className="site-header wrap" ref={headerRef}>
         <Brand />
         <nav className="desktop-nav" aria-label="Main navigation">
           <a href="#discover">Discover</a>
@@ -304,6 +315,8 @@ function App() {
         </a>
         <button
           className="mobile-toggle icon-button"
+          ref={menuButtonRef}
+          type="button"
           onClick={() => setMobileMenu((p) => !p)}
           aria-label={mobileMenu ? 'Close navigation' : 'Open navigation'}
           aria-expanded={mobileMenu}
@@ -312,16 +325,8 @@ function App() {
           {mobileMenu ? <X /> : <Menu />}
         </button>
         {mobileMenu && (
-          <nav
-            className="mobile-nav"
-            id="mobile-nav"
-            aria-label="Mobile navigation"
-          >
-            {[
-              ['Discover', '#discover'],
-              ['How it works', '#how-it-works'],
-              ['FAQs', '#faq'],
-            ].map(([label, href]) => (
+          <nav className="mobile-nav" id="mobile-nav" aria-label="All sections">
+            {navigation.map(([label, href]) => (
               <a key={href} href={href} onClick={() => setMobileMenu(false)}>
                 {label}
                 <ArrowUpRight size={18} />
@@ -341,9 +346,6 @@ function App() {
               <br />A lot to
               <br />
               <em>discover.</em>
-              <span className="title-spark" aria-hidden="true">
-                ✳
-              </span>
             </h1>
             <p>
               Your curiosity deserves a better feed. Explore big ideas in short
@@ -370,12 +372,11 @@ function App() {
             <div className="visual-field" aria-hidden="true">
               <div className="orbit orbit-one" />
               <div className="orbit orbit-two" />
-              <span className="visual-star">✳</span>
-              <span className="field-label">FOLLOW YOUR CURIOSITY ↗</span>
+              <span className="field-label">FOLLOW YOUR CURIOSITY</span>
             </div>
             <div className="floating-note note-top">
               <span className="note-icon">
-                <Sparkles size={19} />
+                <Compass size={19} />
               </span>
               <div>
                 A new perspective.<small>Just one minute away.</small>
@@ -389,7 +390,10 @@ function App() {
               <span className="phone-camera" />
               <span className="phone-top">
                 <b>9:41</b>
-                <span>••• ▰</span>
+                <span className="phone-status">
+                  <CellSignal size={12} />
+                  <Battery size={15} />
+                </span>
               </span>
               <span className="phone-nav">
                 <b>spirkz.</b>
@@ -413,7 +417,7 @@ function App() {
                 <em>But why?</em>
               </span>
               <span className="phone-play">
-                <Play size={22} fill="currentColor" />
+                <Play size={22} weight="fill" />
               </span>
               <span className="phone-bottom">
                 <span>
@@ -444,25 +448,28 @@ function App() {
           <div className="wrap">
             <span>A WORLD TO GET INTO</span>
             <span>
-              Science <i>✳</i>
+              Science <i aria-hidden="true">·</i>
             </span>
             <span>
-              History <i>✳</i>
+              History <i aria-hidden="true">·</i>
             </span>
             <span>
-              Languages <i>✳</i>
+              Languages <i aria-hidden="true">·</i>
             </span>
             <span>
-              Nature <i>✳</i>
+              Nature <i aria-hidden="true">·</i>
             </span>
             <span>
-              Technology <i>✳</i>
+              Technology <i aria-hidden="true">·</i>
             </span>
             <span>
               And your next obsession <ArrowUpRight size={17} />
             </span>
           </div>
         </div>
+        <AboutSection onLesson={openLesson} />
+        <WhySection />
+        <TopicsSection />
         <section id="discover" className="discover wrap section-space">
           <div className="section-heading">
             <div>
@@ -536,8 +543,7 @@ function App() {
                 Take your first little step <ArrowUpRight size={20} />
               </button>
               <div className="journey-stamp">
-                <Zap size={19} fill="currentColor" /> SMALL STEPS. REAL
-                DISCOVERIES.
+                <BookOpen size={19} /> SMALL STEPS. REAL DISCOVERIES.
               </div>
             </div>
             <div className="journey-steps">
@@ -550,8 +556,7 @@ function App() {
                     you loved.
                   </p>
                   <span className="example-pill">
-                    <Sparkles size={14} /> Why does the Moon always look
-                    familiar?
+                    <Moon size={14} /> Why does the Moon always look familiar?
                   </span>
                 </div>
               </div>
@@ -591,9 +596,11 @@ function App() {
             </div>
           </div>
         </section>
+        <CreatorsSection />
+        <AppSection onLesson={openLesson} />
         <section id="faq" className="wrap faq-section section-space">
-          <div className="ios-panel">
-            <span className="eyebrow">GOOD THINGS ARE ON THE WAY</span>
+          <div className="ios-panel" id="notify">
+            <span className="eyebrow">BE THE FIRST TO KNOW</span>
             <h2>
               iPhone in your pocket?
               <br />
@@ -625,11 +632,9 @@ function App() {
             </Accordion>
           </div>
         </section>
+        <InvestSection />
         <section className="wrap">
           <div className="closing-cta">
-            <span className="cta-spark" aria-hidden="true">
-              ✳
-            </span>
             <div>
               <span className="eyebrow">YOUR NEXT MINUTE HAS POTENTIAL</span>
               <h2>
@@ -648,6 +653,7 @@ function App() {
             Visit the official Spirkz site <ArrowUpRight size={16} />
           </a>
         </div>
+        <FooterLinks />
         <div className="footer-bottom">
           <span>
             Independent design concept by Nilesh. Not the official Spirkz

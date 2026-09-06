@@ -1,0 +1,25 @@
+// Direct imports keep the development bundle limited to the icons we use.
+export { ArrowUpRightIcon as ArrowUpRight } from '@phosphor-icons/react/dist/csr/ArrowUpRight';
+export { ArrowRightIcon as ArrowRight } from '@phosphor-icons/react/dist/csr/ArrowRight';
+export { PlayIcon as Play } from '@phosphor-icons/react/dist/csr/Play';
+export { PauseIcon as Pause } from '@phosphor-icons/react/dist/csr/Pause';
+export { ArrowCounterClockwiseIcon as RotateCcw } from '@phosphor-icons/react/dist/csr/ArrowCounterClockwise';
+export { CheckIcon as Check } from '@phosphor-icons/react/dist/csr/Check';
+export { ListIcon as Menu } from '@phosphor-icons/react/dist/csr/List';
+export { XIcon as X } from '@phosphor-icons/react/dist/csr/X';
+export { BookOpenIcon as BookOpen } from '@phosphor-icons/react/dist/csr/BookOpen';
+export { BookmarkSimpleIcon as Bookmark } from '@phosphor-icons/react/dist/csr/BookmarkSimple';
+export { CompassIcon as Compass } from '@phosphor-icons/react/dist/csr/Compass';
+export { SpeakerSlashIcon as VolumeX } from '@phosphor-icons/react/dist/csr/SpeakerSlash';
+export { CaretDownIcon as ChevronDownIcon } from '@phosphor-icons/react/dist/csr/CaretDown';
+export { CaretUpIcon as ChevronUpIcon } from '@phosphor-icons/react/dist/csr/CaretUp';
+export { CheckCircleIcon as CheckCircle } from '@phosphor-icons/react/dist/csr/CheckCircle';
+export { MoonIcon as Moon } from '@phosphor-icons/react/dist/csr/Moon';
+export { CellSignalFullIcon as CellSignal } from '@phosphor-icons/react/dist/csr/CellSignalFull';
+export { BatteryFullIcon as Battery } from '@phosphor-icons/react/dist/csr/BatteryFull';
+export { ClockIcon as Clock } from '@phosphor-icons/react/dist/csr/Clock';
+export { GraduationCapIcon as GraduationCap } from '@phosphor-icons/react/dist/csr/GraduationCap';
+export { DeviceMobileIcon as DeviceMobile } from '@phosphor-icons/react/dist/csr/DeviceMobile';
+export { GlobeHemisphereWestIcon as Globe } from '@phosphor-icons/react/dist/csr/GlobeHemisphereWest';
+export { PencilSimpleLineIcon as Pencil } from '@phosphor-icons/react/dist/csr/PencilSimpleLine';
+export { EnvelopeSimpleIcon as Envelope } from '@phosphor-icons/react/dist/csr/EnvelopeSimple';

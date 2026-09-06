@@ -30,7 +30,8 @@ If this folder is imported from a larger repository, set its root directory to `
 
 ## What's included
 
-- Responsive landing page with self-hosted real science photographs and Manrope fonts.
+- Complete original section coverage: About, Why Spirkz, all 12 topics, creators, app, iOS updates, FAQs, investors, contact details and official legal links, alongside the concept lessons and course journey.
+- Responsive landing page with self-hosted real science photographs, Manrope fonts and Phosphor Icons.
 - A correctly proportioned, clickable phone concept.
 - Three original 32-second animated, caption-led sample lessons. Play/pause, seek, chapter selection, replay, next lesson, and an end-of-lesson quiz work locally.
 - Keyboard accessible dialog and single-open FAQ accordion using the starter's Base UI / Shadcn components.
@@ -42,6 +43,9 @@ If this folder is imported from a larger repository, set its root directory to `
 ## Editing
 
 - `src/App.tsx`: landing-page content and lesson player.
+- `src/Sections.tsx`: restored original-site sections.
+- `src/content.ts`: shared section navigation, all topics and FAQ content.
+- `src/icons.ts`: directly imported Phosphor icons.
 - `src/lessons.ts`: lesson captions, references, and app links.
 - `app/globals.css`: visual theme and responsive styling.
 - `public/images`: locally served image assets.
@@ -54,4 +58,4 @@ The scaffold was adapted to use Vite's static build so it can be deployed on Ver
 
 This is an outreach concept, not an official Spirkz site or app. It does not include live Spirkz footage, a recommendation system, a course backend, or an email service. Its sample course path is illustrative, and the photo and content credits should stay with the demo.
 
-TypeScript, lint, and automated content/boundary checks are provided. Browser interaction and responsive visual QA have not been performed in this task.
+TypeScript, lint, lesson checks, server-rendered section coverage, and navigation CSS regression checks at 320–1440px are provided. Browser interaction and responsive visual QA have not been performed in this task.
